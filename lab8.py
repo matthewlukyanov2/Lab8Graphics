@@ -27,6 +27,16 @@ imgOut2 = cv2.GaussianBlur(imgOrig, (25, 25), 0)
 imgSecond = cv2.imread('SecondImage.jpg')
 imgSecondGray = cv2.cvtColor(imgSecond, cv2.COLOR_BGR2GRAY)
 
+# Sobel thresholding with nested loops
+threshold_value = 50
+sobelThresholded = np.zeros_like(sobelHorizontal)
+for i in range(sobelHorizontal.shape[1]):
+    for j in range(sobelHorizontal.shape[2]):
+        if abs(sobelHorizontal[i, j]) > threshold_value:
+            sobelThresholded[i, j] = 255
+        else:
+            sobelThresholded[i, j] = 0
+
 # Plot the results
 nrows = 3
 ncols = 3
