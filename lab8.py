@@ -30,8 +30,8 @@ imgSecondGray = cv2.cvtColor(imgSecond, cv2.COLOR_BGR2GRAY)
 # Sobel thresholding with nested loops
 threshold_value = 50
 sobelThresholded = np.zeros_like(sobelHorizontal)
-for i in range(sobelHorizontal.shape[1]):
-    for j in range(sobelHorizontal.shape[2]):
+for i in range(sobelHorizontal.shape[0]):
+    for j in range(sobelHorizontal.shape[1]):
         if abs(sobelHorizontal[i, j]) > threshold_value:
             sobelThresholded[i, j] = 255
         else:
@@ -72,6 +72,11 @@ plt.subplot(nrows, ncols, 6)
 plt.imshow(cv2.cvtColor(imgOut2, cv2.COLOR_BGR2RGB))  
 plt.title('GaussianBlur (25x25)')
 plt.xticks([]), plt.yticks([]) 
+
+plt.subplot(nrows, ncols, 7)
+plt.imshow(sobelEdges, cmap='gray')
+plt.title('Sobel Edge Magnitude')
+plt.xticks([]), plt.yticks([])
 
 plt.tight_layout()
 
