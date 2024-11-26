@@ -23,6 +23,10 @@ canny = cv2.Canny(imgGray, cannyThreshold, cannyParam2)
 imgOut1 = cv2.GaussianBlur(imgOrig, (15, 15), 0)  
 imgOut2 = cv2.GaussianBlur(imgOrig, (25, 25), 0) 
 
+# Second Image (Example)
+imgSecond = cv2.imread('SecondImage.jpg')
+imgSecondGray = cv2.cvtColor(imgSecond, cv2.COLOR_BGR2GRAY)
+
 # Plot the results
 nrows = 3
 ncols = 3
