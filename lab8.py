@@ -2,17 +2,28 @@ import cv2
 import numpy as np
 from matplotlib import pyplot as plt
 
+# Load the original image
 imgOrig = cv2.imread('ATU.jpg')  
+# Convert to grayscale
 imgGray = cv2.cvtColor(imgOrig, cv2.COLOR_BGR2GRAY)
 
+# Sobel edge detection
 sobelHorizontal = cv2.Sobel(imgGray, cv2.CV_64F, 1, 0, ksize=5)  
 sobelVertical = cv2.Sobel(imgGray, cv2.CV_64F, 0, 1, ksize=5)
 
-canny = cv2.Canny(imgIn,cannyThreshold,cannyParam2)
+# Sobel combined edges
+sobelEdges = cv2.magnitude(sobelHorizontal, sobelVertical)
 
+# Apply Canny edge detection
+cannyThreshold = 100
+cannyParam2 = 200
+canny = cv2.Canny(imgGray, cannyThreshold, cannyParam2)
+
+# Apply Gaussian Blur with different kernel sizes
 imgOut1 = cv2.GaussianBlur(imgOrig, (15, 15), 0)  
 imgOut2 = cv2.GaussianBlur(imgOrig, (25, 25), 0) 
 
+# Plot the results
 nrows = 3
 ncols = 3
 
