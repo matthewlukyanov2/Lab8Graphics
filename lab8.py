@@ -83,6 +83,11 @@ plt.imshow(canny, cmap='gray')
 plt.title('Canny Edges')
 plt.xticks([]), plt.yticks([])
 
+plt.subplot(nrows, ncols, 9)
+plt.imshow(sobelThresholded, cmap='gray')
+plt.title('Sobel Thresholded')
+plt.xticks([]), plt.yticks([])
+
 plt.tight_layout()
 
 plt.show()
