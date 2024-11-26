@@ -8,6 +8,8 @@ imgGray = cv2.cvtColor(imgOrig, cv2.COLOR_BGR2GRAY)
 sobelHorizontal = cv2.Sobel(imgGray, cv2.CV_64F, 1, 0, ksize=5)  
 sobelVertical = cv2.Sobel(imgGray, cv2.CV_64F, 0, 1, ksize=5)
 
+canny = cv2.Canny(imgIn,cannyThreshold,cannyParam2)
+
 imgOut1 = cv2.GaussianBlur(imgOrig, (15, 15), 0)  
 imgOut2 = cv2.GaussianBlur(imgOrig, (25, 25), 0) 
 
