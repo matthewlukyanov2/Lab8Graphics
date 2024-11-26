@@ -78,6 +78,11 @@ plt.imshow(sobelEdges, cmap='gray')
 plt.title('Sobel Edge Magnitude')
 plt.xticks([]), plt.yticks([])
 
+plt.subplot(nrows, ncols, 8)
+plt.imshow(canny, cmap='gray')
+plt.title('Canny Edges')
+plt.xticks([]), plt.yticks([])
+
 plt.tight_layout()
 
 plt.show()
